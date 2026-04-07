@@ -1,0 +1,33 @@
+{
+  "project": "time-loop-pitch-ep01",
+  "created_at": "2026-04-07T22:16:20.485399+00:00",
+  "github_repo": "ykzhujiang/time-loop-pitch-ep01",
+  "config": {
+    "theme": "时间循环：完美Pitch - 创业者在投资人面前pitch，时间倒流回到15秒前，第47次循环终于找到完美方式",
+    "genre": "comedy",
+    "style": "realistic",
+    "duration": 60,
+    "characters": 2,
+    "setting": "中国·当代·现代办公室",
+    "ratio": "9:16",
+    "episode": "ep01"
+  },
+  "status": "not_started",
+  "steps": {
+    "step1b": {
+      "status": "not_started"
+    },
+    "step1.5": {
+      "status": "not_started"
+    },
+    "step3": {
+      "status": "not_started"
+    },
+    "step4": {
+      "status": "not_started"
+    },
+    "step6": {
+      "status": "not_started"
+    }
+  }
+}
