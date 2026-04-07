@@ -12,10 +12,14 @@
     "ratio": "9:16",
     "episode": "ep01"
   },
-  "status": "not_started",
+  "status": "step1b_done",
   "steps": {
     "step1b": {
-      "status": "not_started"
+      "status": "done",
+      "started_at": "2026-04-07T22:16:35.788724+00:00",
+      "completed_at": "2026-04-07T22:17:16.850467+00:00",
+      "output": "production/storyboard/ep01.md",
+      "segment_count": 5
     },
     "step1.5": {
       "status": "not_started"
