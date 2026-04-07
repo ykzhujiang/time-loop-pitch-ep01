@@ -12,7 +12,7 @@
     "ratio": "9:16",
     "episode": "ep01"
   },
-  "status": "step1b_done",
+  "status": "step1.5_done",
   "steps": {
     "step1b": {
       "status": "done",
@@ -22,7 +22,12 @@
       "segment_count": 5
     },
     "step1.5": {
-      "status": "not_started"
+      "status": "done",
+      "started_at": "2026-04-07T22:18:12.836228+00:00",
+      "completed_at": "2026-04-07T22:18:24.895445+00:00",
+      "output": "production/storyboard/ep01_storyboard_verdict.json",
+      "character_verdict": "PASS",
+      "storyboard_verdict": "PASS"
     },
     "step3": {
       "status": "not_started"
