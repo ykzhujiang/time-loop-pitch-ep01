@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>时间循环：完美Pitch — EP01 分镜剧本</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,"PingFang SC","Noto Sans SC",sans-serif;background:#0a0a0f;color:#e0e0e0;line-height:1.8}
+.hero{min-height:60vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px;background:linear-gradient(135deg,#0a0a1a 0%,#1a1a3a 50%,#0a0a1a 100%);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;width:200%;height:200%;top:-50%;left:-50%;background:radial-gradient(circle at 30% 40%,rgba(100,140,255,0.08) 0%,transparent 50%),radial-gradient(circle at 70% 60%,rgba(255,100,140,0.06) 0%,transparent 50%);animation:drift 20s ease-in-out infinite}
+@keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,10px)}}
+.hero h1{font-size:2.2em;font-weight:800;background:linear-gradient(90deg,#6fa8ff,#ff6fa8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;position:relative;z-index:1;margin-bottom:8px}
+.hero .tag{display:inline-block;background:rgba(111,168,255,0.15);border:1px solid rgba(111,168,255,0.3);border-radius:20px;padding:4px 16px;font-size:0.85em;color:#6fa8ff;margin-bottom:16px;position:relative;z-index:1}
+.hero .logline{max-width:600px;font-size:1.1em;color:#a0a0b8;position:relative;z-index:1}
+.section{max-width:700px;margin:0 auto;padding:32px 20px}
+.section h2{font-size:1.5em;font-weight:700;margin-bottom:20px;color:#6fa8ff;border-left:4px solid #6fa8ff;padding-left:12px}
+.char-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin-bottom:16px;transition:transform 0.2s}
+.char-card:hover{transform:translateY(-2px)}
+.char-name{font-size:1.2em;font-weight:700;color:#ff6fa8;margin-bottom:8px}
+.char-desc{font-size:0.95em;color:#b0b0c8}
+.scene-card{background:rgba(111,168,255,0.06);border:1px solid rgba(111,168,255,0.15);border-radius:12px;padding:20px;margin-bottom:16px}
+.scene-name{font-size:1.1em;font-weight:700;color:#ffa86f;margin-bottom:8px}
+.segment{background:rgba(255,255,255,0.03);border-radius:16px;margin-bottom:24px;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+.seg-header{background:linear-gradient(90deg,rgba(111,168,255,0.15),rgba(255,111,168,0.1));padding:16px 20px;display:flex;justify-content:space-between;align-items:center}
+.seg-title{font-size:1.1em;font-weight:700;color:#fff}
+.seg-dur{background:rgba(255,168,111,0.2);color:#ffa86f;padding:2px 10px;border-radius:10px;font-size:0.85em}
+.seg-meta{padding:12px 20px;display:flex;gap:12px;flex-wrap:wrap;font-size:0.85em;color:#8888a8;border-bottom:1px solid rgba(255,255,255,0.05)}
+.seg-meta span{background:rgba(255,255,255,0.05);padding:2px 8px;border-radius:6px}
+.physical{padding:12px 20px;background:rgba(111,168,255,0.04);font-size:0.9em;color:#8888c8;border-bottom:1px solid rgba(255,255,255,0.05)}
+.physical strong{color:#6fa8ff}
+.part{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.04);animation:fadeSlide 0.5s ease-out both}
+.part:last-child{border-bottom:none}
+.part-num{display:inline-block;background:linear-gradient(135deg,#6fa8ff,#ff6fa8);color:#fff;width:28px;height:28px;border-radius:50%;text-align:center;line-height:28px;font-size:0.8em;font-weight:700;margin-right:10px;flex-shrink:0}
+.part-text{font-size:1.05em;color:#d0d0e0}
+.part-text .dialogue{color:#ffa86f;font-weight:600}
+.part-text .inner{color:#6fa8ff;font-style:italic}
+.camera{padding:12px 20px;font-size:0.85em;color:#666680;background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.04)}
+.camera::before{content:'🎬 '}
+.hook{max-width:700px;margin:0 auto;padding:32px 20px}
+.hook-card{background:linear-gradient(135deg,rgba(255,168,111,0.1),rgba(255,111,168,0.08));border:1px solid rgba(255,168,111,0.2);border-radius:16px;padding:24px;text-align:center}
+.hook-card h3{font-size:1.2em;color:#ffa86f;margin-bottom:12px}
+.hook-card p{font-size:1em;color:#c0c0d0}
+footer{text-align:center;padding:40px 20px;color:#444;font-size:0.85em}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="tag">V6.1 · 单Segment · 15秒 · Seedance 2.0</div>
+  <h1>时间循环：完美Pitch</h1>
+  <p class="logline">创业者在投资人面前pitch，说错一句话被拒。然后——时间倒流，回到15秒前。他必须在这15秒内找到完美的pitch方式。</p>
+</div>
+
+<div class="section">
+  <h2>角色设定</h2>
+  <div class="char-card">
+    <div class="char-name">林浩</div>
+    <div class="char-desc">30岁男性，身高178cm，体型清瘦，偏白肤色略显疲惫。瓜子脸，眉峰微挑，双眼皮，眼尾略长，鼻子挺拔，唇形偏薄，下巴尖削，黑眼圈明显，眼神深邃透着狡黠。黑色短发微卷，发丝略显凌乱自然。穿着微皱的灰色休闲西装，内搭白色T恤，袖子卷至手肘，没系领带。</div>
+  </div>
+  <div class="char-card">
+    <div class="char-name">王总</div>
+    <div class="char-desc">45岁女性，身高168cm，体型挺拔，白皙肤色。鹅蛋脸，柳叶眉，内双眼皮，眼神锐利深邃，法令纹明显。黑色齐耳短发一丝不苟，侧分刘海。穿着黑色高定西装套裙，内搭白色真丝衬衫，佩戴银色细边眼镜。</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>场景</h2>
+  <div class="scene-card">
+    <div class="scene-name">会议室</div>
+    <div class="char-desc">现代化玻璃墙会议室，落地窗透入冷色调日光。长桌中央两杯冒热气的咖啡，桌角一盆绿植。空间简洁冷调，商业压迫感极强。门口左侧有一盆半人高的龟背竹。</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>分镜剧本</h2>
+
+  <div class="segment">
+    <div class="seg-header">
+      <span class="seg-title">Segment 01</span>
+      <span class="seg-dur">15s</span>
+    </div>
+    <div class="seg-meta">
+      <span>📍 会议室</span>
+      <span>🎭 林浩 · 王总</span>
+    </div>
+    <div class="physical">
+      <strong>Physical State:</strong><br>
+      · 林浩：画面左侧，站在会议室门口，右手拿手机，左手插口袋，身体微前倾，视线看向王总<br>
+      · 王总：画面右侧，坐在椅子上，双手交叉放桌面，视线看向林浩，表情礼貌但疏离
+    </div>
+
+    <div class="part" style="animation-delay:0.1s">
+      <span class="part-num">1</span>
+      <span class="part-text">林浩推开会议室玻璃门，踏入时身体本能地向右侧身，夸张地避开门口那盆龟背竹，脚步却稳健自信——仿佛这个躲闪动作已经排练过无数遍。</span>
+    </div>
+    <div class="part" style="animation-delay:0.2s">
+      <span class="part-num">2</span>
+      <span class="part-text">林浩大步走到桌前，直视王总，右手举起手机屏幕朝向对方。<span class="dialogue">"王总，今天不讲PPT了。"</span></span>
+    </div>
+    <div class="part" style="animation-delay:0.3s">
+      <span class="part-num">3</span>
+      <span class="part-text">王总微皱眉，嘴唇刚张开。林浩抢先一步伸出左手做了个"停"的手势。<span class="dialogue">"您先别说那句话——先看这个。"</span></span>
+    </div>
+    <div class="part" style="animation-delay:0.4s">
+      <span class="part-num">4</span>
+      <span class="part-text">王总嘴唇闭上，目光从林浩脸上移向手机屏幕，瞳孔微微放大，右手不自觉地松开交叉的姿势，缓缓伸向手机——这是她第一次主动伸手。林浩嘴角微微上扬，视线从手机屏幕移向王总正在伸出的手。</span>
+    </div>
+    <div class="part" style="animation-delay:0.5s">
+      <span class="part-num">5</span>
+      <span class="part-text">特写林浩微笑的侧脸，窗外阳光打在他脸颊。<span class="inner">"第47次了……她终于伸手了。"</span> 手机屏幕的反光映在他瞳孔里，隐约能看到屏幕上一行小字。</span>
+    </div>
+
+    <div class="camera">中景开场 → Part 3推至近景 → Part 5特写侧脸 · 平视角度 · 180度法则 · 正常速度</div>
+  </div>
+</div>
+
+<div class="hook">
+  <div class="hook-card">
+    <h3>🔮 悬念钩子</h3>
+    <p>手机屏幕上显示的不是产品demo，而是一行字——<br><strong style="color:#ffa86f;font-size:1.1em">"循环 #47 / 突破条件已满足"</strong><br>这个时间循环本身……就是一个系统。</p>
+  </div>
+</div>
+
+<footer>
+  EXP-1048 · Trinity V3 · Operator Cycle 767 · 2026-04-08
+</footer>
+
+</body>
+</html>
